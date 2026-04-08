@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myMAWARIS - Solusi Pewarisan Anda</title>
+    <title>myWARIS - Solusi Pewarisan Anda</title>
+     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -217,21 +218,31 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row gap-4 no-print">
-                    <button onclick="nextStep(2)" class="flex-1 bg-gray-200 text-gray-700 font-bold py-4 rounded-2xl">Ubah Data</button>
-                    <button onclick="window.print()" class="flex-1 bg-emerald-600 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2">
-                        <i data-lucide="printer" size="20"></i> Cetak Laporan (PDF)
+                <!-- Action Buttons Section -->
+                <div class="flex flex-col gap-4 no-print">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <button onclick="nextStep(2)" class="flex-1 bg-gray-200 text-gray-700 font-bold py-4 rounded-2xl">Ubah Data</button>
+                        <button onclick="window.print()" class="flex-1 bg-emerald-600 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2">
+                            <i data-lucide="printer" size="20"></i> Cetak Laporan (PDF)
+                        </button>
+                    </div>
+                    <!-- New eWasiat Button -->
+                    <button onclick="gotoEWasiat()" class="w-full bg-indigo-600 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 hover:bg-indigo-700 transition shadow-lg">
+                        <i data-lucide="file-signature" size="20"></i> Permohonan eWasiat
                     </button>
                 </div>
             </section>
         </main>
 
         <footer class="mt-12 py-8 text-center text-gray-400 text-xs border-t no-print">
-            <p>HCHmyWARIS - Hak Cipta Terpelihara © 2026</p>
+            <p>DISCLAIMER: Keputusan ini adalah anggaran berdasarkan input dan bukan hasil sebenar.<p>Ingin membangunkan aplikasi interaktif seperti ini mengikut keperluan anda? Hubungi web developer untuk perbincangan lanjut © HCH</p>
         </footer>
     </div>
 
     <script>
+        // --- SLOT UNTUK LINK EXTERNAL ---
+        const EWASIAT_URL = "https://wasiatku.my?cid=182"; // Tukar link di sini nnt
+
         // State
         let currentStep = 1;
         let profile = {
@@ -450,8 +461,11 @@
             lucide.createIcons();
         }
 
+        function gotoEWasiat() {
+            window.open(EWASIAT_URL, '_blank');
+        }
+
         lucide.createIcons();
     </script>
 </body>
-</html>
 </html>
